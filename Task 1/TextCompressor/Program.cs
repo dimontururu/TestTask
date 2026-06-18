@@ -13,8 +13,9 @@
             compressionLine = "aaabbcccdde";
 
             ICompressor compressor = new Compressor();
+            IServiceValidation serviceValidation = new ServiceValidation();
 
-            ServiceCompressor compressorService = new(compressor);
+            ServiceCompressor compressorService = new(compressor,serviceValidation);
 
             compressionLine = compressorService.Compress(compressionLine);
 
