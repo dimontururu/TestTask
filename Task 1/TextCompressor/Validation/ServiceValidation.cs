@@ -1,4 +1,4 @@
-﻿namespace TextCompressor
+﻿namespace TextCompressor.Validation
 {
     internal class ServiceValidation : IServiceValidation
     {

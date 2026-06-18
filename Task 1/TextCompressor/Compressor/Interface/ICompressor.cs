@@ -1,5 +1,4 @@
-﻿
-namespace TextCompressor
+﻿namespace TextCompressor.Compressor.Interface
 {
     internal interface ICompressor
     {

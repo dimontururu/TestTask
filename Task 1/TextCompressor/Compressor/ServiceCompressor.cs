@@ -1,6 +1,8 @@
-﻿namespace TextCompressor
+﻿using TextCompressor.Compressor.Interface;
+
+namespace TextCompressor.Compressor
 {
-    internal class ServiceCompressor(ICompressor compressor, IServiceValidation serviceValidation)
+    internal class ServiceCompressor(ICompressor compressor, IServiceValidation serviceValidation):IServiceCompressor
     {
         private ICompressor Compressor { get; } = compressor;
         private IServiceValidation ServiceValidation {  get; } = serviceValidation;

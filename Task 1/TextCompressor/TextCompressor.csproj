@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="IServiceValidation.cs" />
+    <None Include="Validation\IServiceValidation.cs" />
   </ItemGroup>
 
 </Project>

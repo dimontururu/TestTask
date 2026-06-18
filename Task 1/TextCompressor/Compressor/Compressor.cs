@@ -1,6 +1,7 @@
 ﻿using System.Text;
+using TextCompressor.Compressor.Interface;
 
-namespace TextCompressor
+namespace TextCompressor.Compressor
 {
     internal class Compressor:ICompressor
     {

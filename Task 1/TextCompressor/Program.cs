@@ -1,4 +1,7 @@
-﻿namespace TextCompressor
+﻿using TextCompressor.Compressor;
+using TextCompressor.Compressor.Interface;
+
+namespace TextCompressor
 {
     internal class Program
     {
@@ -12,20 +15,26 @@
 
             compressionLine = "aaabbcccdde";
 
-            ICompressor compressor = new Compressor();
-            IServiceValidation serviceValidation = new ServiceValidation();
+            ICompressorFactory compressorFactory = new CompressorFactory();
 
-            ServiceCompressor compressorService = new(compressor,serviceValidation);
+            IServiceCompressor compressorService = compressorFactory.CreateServiceCompressor();
 
-            compressionLine = compressorService.Compress(compressionLine);
+            try
+            {
+                compressionLine = compressorService.Compress(compressionLine);
 
-            Console.WriteLine(compressionLine);
+                Console.WriteLine(compressionLine);
 
-            compressionLine = compressorService.Decompress(compressionLine);
+                compressionLine = compressorService.Decompress(compressionLine);
 
-            Console.WriteLine(compressionLine);
+                Console.WriteLine(compressionLine);
 
-            Console.WriteLine("Совпадает? "+ compressionLine.Equals("aaabbcccdde"));
+                Console.WriteLine("Совпадает? " + compressionLine.Equals("aaabbcccdde"));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Ошибка в программе:\n"+ex.Message);
+            }
         }
     }
 }
