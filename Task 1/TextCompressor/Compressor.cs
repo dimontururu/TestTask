@@ -2,9 +2,9 @@
 
 namespace TextCompressor
 {
-    internal static class Compressor
+    internal class Compressor:ICompressor
     {
-        public static string Compress(this string input)
+        public string Compress(string input)
         {
             if (string.IsNullOrEmpty(input))
                 return "";
@@ -40,7 +40,7 @@ namespace TextCompressor
             return result.ToString();
         }
 
-        public static string Decompress(this string input)
+        public string Decompress(string input)
         {
             StringBuilder result = new();
 

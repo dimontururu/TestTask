@@ -12,15 +12,19 @@
 
             compressionLine = "aaabbcccdde";
 
-            compressionLine = compressionLine.Compress();
+            ICompressor compressor = new Compressor();
+
+            ServiceCompressor compressorService = new(compressor);
+
+            compressionLine = compressorService.Compress(compressionLine);
 
             Console.WriteLine(compressionLine);
 
-            compressionLine = compressionLine.Decompress();
+            compressionLine = compressorService.Decompress(compressionLine);
 
             Console.WriteLine(compressionLine);
 
-            Console.WriteLine("Совпадает?"+ compressionLine.Equals("aaabbcccdde"));
+            Console.WriteLine("Совпадает? "+ compressionLine.Equals("aaabbcccdde"));
         }
     }
 }
